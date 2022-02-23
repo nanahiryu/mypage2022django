@@ -1,0 +1,48 @@
+{% load static %}
+{% load blog %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{% block meta_title %}なりと日記{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}なりとの日記帳です。とりとめない呟きや、感想、思ったことを書いています。毒にも薬にもならないでしょう。{% endblock %}">
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header id="site-header">
+        <a href="/">
+            <img src="{% static 'home/img/mechanic_back.jpg' %}" id="hero">
+            <p id="title">なりと日記</p>
+            <p id="subtitle">© 2019 Narito Takizawa.</p>
+        </a>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer id="site-footer">
+        <div class="container" id="footer-container">
+
+            <!-- render_month_linksが入る予定(謎のエラーが...) -->
+
+            {% render_category_links %}
+
+            <ul>
+                <li><a href="https://twitter.com/toritoritorina/" target="_blank">Twitter</a></li>
+                <li><a href="https://github.com/naritotakizawa/" target="_blank">Github</a></li>
+            </ul>
+
+            {% render_search_form request %}
+        </div>
+    </footer>
+
+    <div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a> from <a
+            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+</body>
+
+</html>

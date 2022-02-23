@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="row">
+        {% for category in category_list %}
+        <div class="col"><a href="{% url 'blog:category' category.pk %}">{{ category }}({{ category.diary_count }})</a></div>
+        {% endfor %}
+    </div>
+</div>
