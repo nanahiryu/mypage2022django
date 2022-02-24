@@ -1,4 +1,5 @@
 {% extends 'blog/base2.html' %}
+{% load markdown_extras %}
 
 {% block meta_title %}{{ heading }} - {{ block.super }}{% endblock %}
 
@@ -16,9 +17,11 @@
                 -
                 {{ diary.category }}
             </p>
-            <div class="contents">
-                <p>
-                    {{ diary.text | truncatechars:100 }}
+            
+            <div class="contents text-left">
+                <p class="diary-text">
+                    <!-- {{ diary.text | truncatechars:100 }} -->
+                    {{ diary.text|truncatechars_html:50|markdown|safe}}
                 </p>
             </div>
         </a>

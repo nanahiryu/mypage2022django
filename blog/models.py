@@ -1,5 +1,6 @@
 from django.utils import timezone
 from django.db import models
+from mdeditor.fields import MDTextField
 
 # Create your models here.
 class Category(models.Model):
@@ -15,7 +16,8 @@ class DiaryQuerySet(models.QuerySet):
 class Diary(models.Model):
     """日記"""
     title = models.CharField('タイトル', max_length=64)
-    text = models.TextField('本文')
+    # text = models.TextField('本文')
+    text = MDTextField()
     category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='カテゴリ')
     created_at = models.DateTimeField('作成日', default=timezone.now)
 

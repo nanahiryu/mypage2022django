@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mdeditor',
     'blog',
     'home',
     'django.contrib.admin',
@@ -42,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,6 +137,18 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+# ファイルアップロード用
+MEDIA_ROOT = BASE_DIR / 'uploads'
+MEDIA_URL = '/media/'
+
+# adminの画像アップロード部分を英語にしました
+MDEDITOR_CONFIGS = {
+    'default': {
+        'language': 'en',
+    }
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -1,5 +1,6 @@
 {% extends 'blog/base2.html' %}
 {% load blog %}
+{% load markdown_extras %}
 
 {% block meta_title %}{{ diary.title }} - {{ block.super }}{% endblock %}
 {% block meta_description %}{% endblock %}
@@ -15,7 +16,8 @@
             {{ diary.category }}
         </p>
         <div class="contents text-left">
-            {{ diary.text | linebreaks | urlize2 }}
+            <!-- {{ diary.text | linebreaks | urlize2 }} -->
+            <p class="diary-text">{{ diary.text|markdown|safe }}</p>
         </div>
     </article>
 </section>
