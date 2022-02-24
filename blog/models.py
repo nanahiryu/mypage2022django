@@ -16,6 +16,7 @@ class DiaryQuerySet(models.QuerySet):
 class Diary(models.Model):
     """日記"""
     title = models.CharField('タイトル', max_length=64)
+    subtitle = models.CharField('サブタイトル', max_length=256, default="ないしょのはなし")
     # text = models.TextField('本文')
     text = MDTextField()
     category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='カテゴリ')
