@@ -7,7 +7,7 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['160.251.53.103', 'localhost',
                  'nanahiryu.com', 'www.nanahiryu.com']
