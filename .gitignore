@@ -11,6 +11,4 @@ media
 myvenv/
 venv/
 uploads/
-static/admin/
-static/mdeditor/
 config/settings.py
