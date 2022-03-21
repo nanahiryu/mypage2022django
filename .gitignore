@@ -11,4 +11,3 @@ media
 myvenv/
 venv/
 uploads/
-config/settings.py
