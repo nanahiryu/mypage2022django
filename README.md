@@ -7,8 +7,9 @@ djangoを使ったホームページのリポジトリ。
 - mainを直接編集することは避ける
 - ローカルでは ```python manage.py runserver --settings=config.settings.develop```でビルドインサーバーを立てましょう。
 - 本番環境で変更があったら以下のコマンドを
+  1. ```python manage.py collectstatic```
   1. ```sudo systemctl restart gunicorn ``` 
-  2. ```sudo nginx -t && sudo systemctl restart nginx```
+  1. ```sudo nginx -t && sudo systemctl restart nginx```
 # よく使うリンク
 - [DjangoをVPSにデプロイする - Just Python](https://just-python.com/use_case/django/django-deploy-vps)
 - [Django+nginx+gunicornで502 BAD GATEWAY【原因解明手段まとめ】](https://zenn.dev/ryo_t/articles/71e4ee16d76274)
