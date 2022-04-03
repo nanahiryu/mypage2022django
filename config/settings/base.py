@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'mdeditor',
     'blog',
     'home',
+    'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
