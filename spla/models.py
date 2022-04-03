@@ -2,8 +2,10 @@ from django.db import models
 
 
 class SubWeapon(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField('名前', max_length=64)
     explanation = models.TextField('説明', blank=True)
+    image = models.ImageField(null=True, blank=True, upload_to="sub_img")
 
     class Meta:
         verbose_name = 'サブウェポン'
@@ -14,8 +16,10 @@ class SubWeapon(models.Model):
 
 
 class Special(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField('名前', max_length=64)
     explanation = models.TextField('説明', blank=True)
+    image = models.ImageField(null=True, blank=True, upload_to="sp_img")
 
     class Meta:
         verbose_name = 'スペシャル'
@@ -26,7 +30,9 @@ class Special(models.Model):
 
 
 class Weapon_class(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField('名前', max_length=64)
+    explanation = models.TextField('説明', blank=True)
 
     class Meta:
         verbose_name = 'ブキ種'
@@ -37,6 +43,7 @@ class Weapon_class(models.Model):
 
 
 class Weight(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField('名前', max_length=64)
 
     class Meta:
@@ -59,10 +66,12 @@ class Attack_class(models.Model):
 
 
 class Main(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField('名前', max_length=64)
     weapon_class = models.ForeignKey(Weapon_class, on_delete=models.PROTECT)
     weight = models.ForeignKey(Weight, on_delete=models.PROTECT)
     explanation = models.TextField('説明', blank=True)
+    image = models.ImageField(null=True, blank=True, upload_to="main_img")
     attacks = models.ManyToManyField(
         Attack_class,
         through='Range',
@@ -91,15 +100,20 @@ class Range(models.Model):
 
 
 class Weapon(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField('ブキ名', max_length=64)
-    main = models.ForeignKey(Main, on_delete=models.PROTECT)
-    sub = models.ForeignKey(SubWeapon, on_delete=models.PROTECT)
-    special = models.ForeignKey(Special, on_delete=models.PROTECT)
+    main = models.ForeignKey(
+        Main, on_delete=models.PROTECT, related_name='weapon')
+    sub = models.ForeignKey(
+        SubWeapon, on_delete=models.PROTECT, related_name='weapon')
+    special = models.ForeignKey(
+        Special, on_delete=models.PROTECT, related_name='weapon')
     sp_point = models.IntegerField(default=0)
+    image = models.ImageField(null=True, blank=True, upload_to="weapon_img")
 
     class Meta:
         verbose_name = 'ブキ'
-        verbose_name_plural = 'ブキ'
+        verbose_name_plural = 'ブキ一覧'
 
     def __str__(self):
         return self.name

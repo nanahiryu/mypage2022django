@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Splatfont";
+    src: url("./font/Splatfont.woff") format("woff");
+}
+
+a {
+    text-decoration: none;
+}
+
+.splatfont {
+    font-family: Splatfont;
+}
+
+body {
+    background-image: url("./img/bg_main.png");
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: lighten;
+    padding-top: 56px;
+}
+
+/* navbar */
+.navbar_bgcolor {
+    background-color: #ff21b2;
+    padding-left: 0%;
+    padding-right: 2%;
+}
+.nav-item {
+    margin: 0 10px;
+}
+.color-mildblack {
+    color: #333;
+}
