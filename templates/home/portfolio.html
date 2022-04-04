@@ -1,0 +1,25 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row portfolio-header">
+        <h1 class="portfolio-title">nanahiryu's Portfolio</h1> 
+    </div>
+    <div class="row">
+        <div class="column mb-5">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'home/img/spla2_card.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Splatoon2!!DB</h5>
+                    <p class="card-text">スプラトゥーンに関するまとめサイトを作る予定</p>
+                    <a href="{% url 'spla:index' %}" class="btn btn-primary">GO！</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

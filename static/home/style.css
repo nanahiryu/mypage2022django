@@ -78,3 +78,13 @@ footer {
     margin: 10px;
     font-size: 14pt;
 }
+
+/* Portfolio */
+.portfolio-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36pt;
+    color: #000;
+}
+.portfolio-header {
+    margin: 60px 5% 30px 5%;
+}
