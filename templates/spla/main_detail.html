@@ -1,13 +1,17 @@
 {% extends 'spla/base.html' %}
 {% block content %}
 <div class="splatfont">
+    <h2>射程のリスト</h2>
+    {% for i in main.range.all %}
+    <h2>{{ i.range_name }}：{{ i.range }}</h2>
+    {% endfor %}
+
     <h2>メインが{{ main.name }}のブキ一覧</h2>
     {% for weapon in main.weapon.all %}
     <a href="{% url 'spla:weapon_detail' weapon.pk %}">
         <h2>{{ weapon.name }}</h2>
     </a>
     {% endfor %}
-
 </div>
 
 {% endblock %}

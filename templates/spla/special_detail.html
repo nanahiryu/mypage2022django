@@ -1,7 +1,7 @@
 {% extends 'spla/base.html' %}
 {% block content %}
 <div class="splatfont">
-    <h2>メインが{{ special.name }}のブキ一覧</h2>
+    <h2>スペシャルが{{ special.name }}のブキ一覧</h2>
     {% for weapon in special.weapon.all %}
     <a href="{% url 'spla:weapon_detail' weapon.pk %}">
         <h2>{{ weapon.name }}</h2>

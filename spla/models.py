@@ -87,8 +87,10 @@ class Main(models.Model):
 
 
 class Range(models.Model):
-    range_name = models.ForeignKey(Attack_class, on_delete=models.PROTECT)
-    main = models.ForeignKey(Main, on_delete=models.PROTECT)
+    range_name = models.ForeignKey(
+        Attack_class, on_delete=models.PROTECT, related_name='range')
+    main = models.ForeignKey(
+        Main, on_delete=models.PROTECT, related_name='range')
     range = models.DecimalField('射程', max_digits=3, decimal_places=2)
 
     class Meta:
