@@ -1,62 +1,79 @@
+// ドロップダウンメニューを動かす
+$(function () {
+    $('.header-nav ul li').hover(function(){
+        $(this).children(".menuSub:not(:animated)", this).slideDown();
+    }, function(){
+        $(this).children(".menuSub", this).slideUp();
+    });
+});
+
 
   // hoverとactiveをpcとタブレットで切り替える
 $(function () {
   var userAgent = navigator.userAgent; // ユーザーエージェント判定
-  var link = $('.js-link-hover'); // aタグ要素代入
-  var block = $('.js-btn-hover , .js-div-hover , .js-img-hover'); // buttonタグ、divタグ、imgタグ要素代入
-  var list = $('.js-li-hover'); // liタグ要素代入
-  // aタグを踏んだ時の端末判定とhover装飾
+  var header_nav_link = $('.header-nav-link'); // タグ代入
+  var header_nav_ul_li = $('.header-nav ul li');
+  var menuSub_li = $('.menuSub li');
+  var logo_name = $('.header-logo-name');
+
+// タグ踏んだときのタブレットとpcの挙動を変える
   if (userAgent.indexOf("iPhone") >= 0 || userAgent.indexOf("iPad") >= 0 || userAgent.indexOf("Android") >= 0) {
-    link.on("touchstart", function () {
-      $(this).addClass("link-hover");
-    });
-    link.on("touchend", function () {
-      $(this).removeClass("link-hover");
+    menuSub_li.on("touchstart", function () {
+      $(this).addClass("bg_hover_red");
+      }
+    );
+    menuSub_li.on("touchend", function () {
+      $(this).removeClass("bg_hover_red");
     });
   } else {
-    link.hover(
+    menuSub_li.hover(
       function () {
-        $(this).addClass("link-hover");
+        $(this).addClass("bg_hover_red");
       },
       function () {
-        $(this).removeClass("link-hover");
+        $(this).removeClass("bg_hover_red");
       }
     );
   }
-  // buttonタグ、divタグ、imgタグを踏んだ時の端末判定とhover装飾
+
   if (userAgent.indexOf("iPhone") >= 0 || userAgent.indexOf("iPad") >= 0 || userAgent.indexOf("Android") >= 0) {
-    block.on("touchstart", function () {
-      $(this).addClass("block-hover");
+    header_nav_ul_li.on("touchstart", function () {
+      $(this).children(".header-nav-top-link").addClass("bg_hover_red");
     });
-    block.on("touchend", function () {
-      $(this).removeClass("block-hover");
+    header_nav_ul_li.on("touchend", function () {
+      $(this).children(".header-nav-top-link").removeClass("bg_hover_red");
     });
   } else {
-    block.hover(
+    header_nav_ul_li.hover(
       function () {
-        $(this).addClass("block-hover");
+        $(this).children(".header-nav-top-link").addClass("bg_hover_red");
       },
       function () {
-        $(this).removeClass("block-hover");
+        $(this).children(".header-nav-top-link").removeClass("bg_hover_red");
       }
     );
   }
-  // liタグを踏んだ時の端末判定とhover装飾
+
   if (userAgent.indexOf("iPhone") >= 0 || userAgent.indexOf("iPad") >= 0 || userAgent.indexOf("Android") >= 0) {
-    list.on("touchstart", function () {
-      $(this).addClass("list-hover");
+    logo_name.on("touchstart", function () {
+      $(this).parent(".header-logo").addClass("hover_opacity_08");
+      $(this).parent(".header-logo").addClass("hover_nondecoration");
     });
-    list.on("touchend", function () {
-      $(this).removeClass("list-hover");
+    logo_name.on("touchend", function () {
+      $(this).parent(".header-logo").removeClass("hover_opacity_08");
+      $(this).parent(".header-logo").removeClass("hover_nondecoration");
     });
   } else {
-    list.hover(
+    logo_name.hover(
       function () {
-        $(this).addClass("list-hover");
+        $(this).parent(".header-logo").addClass("hover_opacity_08");
+        $(this).parent(".header-logo").addClass("hover_nondecoration");
       },
       function () {
-        $(this).removeClass("list-hover");
+        $(this).parent(".header-logo").removeClass("hover_opacity_08");
+        $(this).parent(".header-logo").removeClass("hover_nondecoration");
       }
     );
-  }
+  }  
+
 });

@@ -73,18 +73,24 @@ body {
 
 .header-nav>ul>li>.header-nav-link+ul li {
     width: 150px;
-    opacity: 0;
-    height: 0;
-    margin-top: -48px;
+    /* opacity: 0; */
+    /* height: 0; */
+    /* margin-top: -48px; */
+    background-color: #333;
     border-left: 2px solid #ff21b2;
     border-bottom: 2px solid #ff21b2;
 }
 
-.header-nav>ul>li:hover .header-nav-link+ul>li {
+.menuSub {
+    display: none;
+    overflow: hidden;
+}
+
+/* .header-nav>ul>li:hover .header-nav-link+ul>li {
     opacity: 1;
     height: auto;
     margin-top: 0;
-}
+} */
 
 .header-nav .header-nav-link {
     float: left;
@@ -95,29 +101,29 @@ body {
     width: 100%;
 }
 
-.header-nav .header-nav-link:hover {
+/* .header-nav .header-nav-link:hover {
     background-color: rgba(224, 52, 106, 1) !important;
-}
+} */
 
 .header-nav .header-nav-top-link {
     padding: 20px 15px 20px;
 }
 
-.header-nav ul li:hover .header-nav-link {
+/* .header-nav ul li:hover .header-nav-link {
     background-color: #333;
 }
 
 .header-nav ul li:hover .header-nav-top-link {
     background-color: rgba(224, 52, 106, 1) !important;
-}
+} */
 
 .header-nav>ul>li>.header-nav-top-link+ul {
     top: 64px;
 }
 
-.header-nav>ul>li:hover .header-nav-sub-link {
+/* .header-nav>ul>li:hover .header-nav-sub-link {
     background-color: #333;
-}
+} */
 
 .header-logo>.header-logo-name {
     float: left;
@@ -127,12 +133,21 @@ body {
     padding: 9px 0;
     margin-right: 40px;
 }
-.header-logo .header-logo-name:hover {
+/* .header-logo .header-logo-name:hover {
     opacity: 0.8;
 }
 
 .header-logo>.header-logo-name:hover {
     text-decoration: none;
+} */
+
+.header-logo>.hamburger-bar {
+    color: #FFF;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 9px 0;
+    margin-right: 40px;
+    float: right;
 }
 
 @media (max-width: 767px) {
@@ -170,4 +185,25 @@ body {
         width: 100%;
     }
 
+}
+
+.hover_complex {
+    opacity: 1 !important;
+    height: auto;
+    margin-top: 0;
+}
+
+.bg_hover_red {
+    background-color: rgba(224, 52, 106, 1) !important;
+}
+
+.bg_hover_black {
+    background-color: #333;
+}
+
+.hover_opacity_08 {
+    opacity: 0.8;
+}
+.hover_nondecoration {
+    text-decoration: none;
 }

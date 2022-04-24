@@ -2,12 +2,15 @@
 <nav class="fixed-top navbar_bgcolor">
     <div class="fullWidth header splatfont">
         <div class="container">
-            <div class="col-xs-12 col-sm-2 col-md-3 col-md-offset-1 col-lg-4 col-lg-offset-1 header-logo"><a href="/spla" class="header-logo-name">Home</a></div>
+            <div class="col-xs-12 col-sm-2 col-md-3 col-md-offset-1 col-lg-4 col-lg-offset-1 header-logo">
+                <a href="/spla" class="header-logo-name">Home</a>
+                <!-- <a href="#" class="hamburger-bar"><i class="fa-solid fa-bars"></i></a> -->
+            </div>
             <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 header-nav">
             <ul>
                 <li>
                     <a href="{% url 'spla:weapon_list' %}" class="header-nav-link header-nav-top-link">ブキのずかん</a>
-                    <ul>
+                    <ul class="menuSub">
                         <li><a href="{% url 'spla:main_list' %}" class="header-nav-link header-nav-sub-link">メインの一覧</a></li>
                         <li><a href="{% url 'spla:sub_list' %}" class="header-nav-link header-nav-sub-link">サブの一覧</a></li>
                         <li><a href="{% url 'spla:special_list' %}" class="header-nav-link header-nav-sub-link">スペシャルの一覧</a></li>
