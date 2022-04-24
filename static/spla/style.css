@@ -141,13 +141,18 @@ body {
     text-decoration: none;
 } */
 
-.header-logo>.hamburger-bar {
+.hamburger-bar {
+    float: right;
     color: #FFF;
     font-size: 30px;
     font-weight: bold;
     padding: 9px 0;
-    margin-right: 40px;
-    float: right;
+    margin-left: auto;
+    display: none;
+}
+.hamburger-bar:hover {
+    color: #FFF;
+    opacity: 0.8;
 }
 
 @media (max-width: 767px) {
@@ -185,6 +190,12 @@ body {
         width: 100%;
     }
 
+    .hamburger-bar {
+        display: inline-block;
+    }
+    .header-nav {
+        display: none;
+    }
 }
 
 .hover_complex {

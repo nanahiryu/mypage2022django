@@ -7,11 +7,33 @@ $(function () {
     });
 });
 
+// hamburger
+$(function () {
+  $('.hamburger-bar').click(function(){
+    if ($(".header-nav").css('display') === 'none') {
+      $(this).parent().next(".header-nav:not(:animated)").slideDown();
+    }
+    else {
+      $(this).parent().next(".header-nav").slideUp();
+    }
+  })
+});
+
+
+$(window).on("resize", function() {
+  var w = $(window).width();
+  if (w > 767) {  // ブレークポイント（単位：px）
+    $(".header-nav").css('display','block')
+  }
+  else {
+    $(".header-nav").css('display','none')
+  }
+});
+
 
   // hoverとactiveをpcとタブレットで切り替える
 $(function () {
   var userAgent = navigator.userAgent; // ユーザーエージェント判定
-  var header_nav_link = $('.header-nav-link'); // タグ代入
   var header_nav_ul_li = $('.header-nav ul li');
   var menuSub_li = $('.menuSub li');
   var logo_name = $('.header-logo-name');
