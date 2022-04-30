@@ -1,14 +1,21 @@
 {% extends 'spla/base.html' %}
 {% block content %}
-<div class="splatfont">
+<div class="splatfont container">
     <h1>サブのリスト</h1>
+    <div class="row">
+        {% for sub in object_list %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <a href="{% url 'spla:sub_detail' sub.pk %}" class="list-link">
+                <div class="list-block">
+                    <img src="{{ sub.image.url }}" class="list-img">
+                    <h3 class="list-text">{{ sub.name }}</h3>
+                </div>
+            </a>
+        </div>
+        
+        {% endfor %}
+    </div>
     
-    
-    {% for sub in object_list %}
-    <a href="{% url 'spla:sub_detail' sub.pk %}">
-        <h2>{{ sub.name }}</h2>
-    </a>
-    {% endfor %}
 </div>
 
 {% endblock %}

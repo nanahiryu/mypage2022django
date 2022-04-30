@@ -1,14 +1,20 @@
 {% extends 'spla/base.html' %}
 {% block content %}
-<div class="splatfont">
+<div class="splatfont container">
     <h1>ブキのリスト</h1>
-    
-    
-    {% for weapon in object_list %}
-    <a href="{% url 'spla:weapon_detail' weapon.pk %}">
-        <h2>{{ weapon.name }}</h2>
-    </a>
-    {% endfor %}
+    <div class="row">
+        {% for weapon in object_list %}
+        <div class="col-lg-6 col-md-12">
+            <a href="{% url 'spla:weapon_detail' weapon.pk %}" class="list-link">
+                <div class="list-block">
+                    <img src="{{ weapon.image.url }}" class="list-img">
+                    <h3 class="list-text">{{ weapon.name }}</h3>
+                </div>
+            </a>
+        </div>
+        
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

@@ -218,3 +218,29 @@ body {
 .hover_nondecoration {
     text-decoration: none;
 }
+
+/* navbarここまで */
+
+/* list */
+.list-img {
+    width: 50px;
+    display: inline-block;
+}
+.list-text {
+    display: inline-block;
+}
+.list-block {
+    width: 100%;
+    background-color: #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+.list-link {
+    width: 100%;
+    max-width: 500px;
+}
+.list-img-block {
+    display: inline-block;
+    width: 180px;
+}

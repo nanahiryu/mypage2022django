@@ -1,14 +1,20 @@
 {% extends 'spla/base.html' %}
 {% block content %}
-<div class="splatfont">
+<div class="splatfont container">
     <h1>スペシャルのリスト</h1>
-    
-    
-    {% for special in object_list %}
-    <a href="{% url 'spla:special_detail' special.pk %}">
-        <h2>{{ special.name }}</h2>
-    </a>
-    {% endfor %}
+    <div class="row">
+        {% for special in object_list %}
+        <div class="col-lg-6 col-md-12">
+            <a href="{% url 'spla:special_detail' special.pk %}" class="list-link">
+                <div class="list-block">
+                    <img src="{{ special.image.url }}" class="list-img">
+                    <h3 class="list-text">{{ special.name }}</h3>
+                </div>
+            </a>
+        </div>
+        
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
