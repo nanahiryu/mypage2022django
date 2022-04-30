@@ -1,17 +1,58 @@
 {% extends 'spla/base.html' %}
 {% block content %}
-<div class="splatfont">
-    <h2>{{ weapon.name }}</h2>
-    <h3>spポイント：{{ weapon.sp_point }}</h3>
-    <div>
-        <h3>メイン：<a href="{% url 'spla:main_detail' weapon.main.pk %}">{{ weapon.main }}</a></h3>
+<div class="splatfont container">
+    <div class="list-block">
+        <div class="row">
+            <div class="main-detail-img-div">
+                <img src="{{ weapon.image.url }}" class="main-detail-img">
+            </div>
+            <div class="main-detail-str-div">
+                <h1>{{ weapon.name }}</h1>
+                <h3>spポイント：{{ weapon.sp_point }}</h3>
+            </div>
+        </div>
     </div>
-    <div>
-        <h3>サブ：<a href="{% url 'spla:sub_detail' weapon.sub.pk %}">{{ weapon.sub }}</a></h3>
+    <div class="list-block">
+        <div class="row">
+            <div class="main-detail-att">
+                <h3 class="main-detail-tag">メイン</h3>
+            </div>
+            <div class="main-detail-exp">
+                <div class="list-img-block">
+                    {% for main in weapon.main.weapon.all %}
+                    <img src="{{ main.image.url }}" class="list-img">
+                    {% endfor %}
+                </div>
+                <h3 class="main-detail-text"><a href="{% url 'spla:main_detail' weapon.main.pk %}">{{ weapon.main }}</a></h3>
+            </div>
+        </div>
     </div>
-    <div>
-        <h3>スペシャル：<a href="{% url 'spla:special_detail' weapon.special.pk %}">{{ weapon.special }}</a></h3>
+    <div class="list-block">
+        <div class="row">
+            <div class="main-detail-att">
+                <h3 class="main-detail-tag">サブ</h3>
+            </div>
+            <div class="main-detail-exp">
+                <div class="list-img-block">
+                    <img src="{{ weapon.sub.image.url }}" class="list-img">
+                </div>
+                <h3 class="main-detail-text"><a href="{% url 'spla:sub_detail' weapon.sub.pk %}">{{ weapon.sub }}</a></h3>
+            </div>
+        </div>
     </div>
+    <div class="list-block">
+        <div class="row">
+            <div class="main-detail-att">
+                <h3 class="main-detail-tag">スペシャル</h3>
+            </div>
+            <div class="main-detail-exp">
+                <div class="list-img-block">
+                    <img src="{{ weapon.special.image.url }}" class="list-img">
+                </div>
+                <h3 class="main-detail-text"><a href="{% url 'spla:special_detail' weapon.special.pk %}">{{ weapon.special }}</a></h3>
+            </div>
+    </div>
+    
 </div>
 
 
