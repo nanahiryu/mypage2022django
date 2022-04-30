@@ -12,6 +12,7 @@ class IndexView(generic.TemplateView):
 class WeaponListView(generic.ListView):
     template_name = 'spla/weapon_list.html'
     model = Weapon
+    ordering = 'id'
 
 
 class WeaponDetailView(generic.DetailView):
@@ -22,6 +23,7 @@ class WeaponDetailView(generic.DetailView):
 class MainListView(generic.ListView):
     template_name = 'spla/main_list.html'
     model = Main
+    ordering = 'id'
 
 
 class MainDetailView(generic.DetailView):
@@ -33,6 +35,7 @@ class MainDetailView(generic.DetailView):
 class SubListView(generic.ListView):
     template_name = 'spla/sub_list.html'
     model = SubWeapon
+    ordering = 'id'
 
 
 class SubDetailView(generic.DetailView):
@@ -44,6 +47,7 @@ class SubDetailView(generic.DetailView):
 class SpecialListView(generic.ListView):
     template_name = 'spla/special_list.html'
     model = Special
+    ordering = 'id'
 
 
 class SpecialDetailView(generic.DetailView):
