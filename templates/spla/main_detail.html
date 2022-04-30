@@ -1,17 +1,40 @@
 {% extends 'spla/base.html' %}
 {% block content %}
-<div class="splatfont">
-    <h2>射程のリスト</h2>
-    {% for i in main.range.all %}
-    <h2>{{ i.range_name }}：{{ i.range }}</h2>
-    {% endfor %}
+<div class="splatfont container">
+    <div class="main-title-wrapper">
+        <h1 class="main-detail-title">{{ main.name }}（メイン）</h1>
+        <div class="main-title-img-block">
+            {% for weapon in main.weapon.all %}
+            <img src="{{ weapon.image.url }}" class="main-title-img">
+            {% endfor %}
+        </div>
+    </div>
+    <div class="list-block">
+        <div class="row">
+            <h2>射程のリスト</h2>
+            {% for i in main.range.all %}
+            <div class="main-detail-range-block">
+                <h2 class="main-detail-range-att">{{ i.range_name }}：</h2>
+                <h2 class="main-detail-range-exp">{{ i.range }}</h2>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
-    <h2>メインが{{ main.name }}のブキ一覧</h2>
-    {% for weapon in main.weapon.all %}
-    <a href="{% url 'spla:weapon_detail' weapon.pk %}">
-        <h2>{{ weapon.name }}</h2>
-    </a>
-    {% endfor %}
+    <div class="list-block">
+        <div class="row">
+            <h2>メインが{{ main.name }}のブキ一覧</h2>
+            {% for weapon in main.weapon.all %}
+            <div class="col-lg-6 col-md-12">
+                <img src="{{ weapon.image.url }}" class="list-img">
+                <a href="{% url 'spla:weapon_detail' weapon.pk %}">
+                    <h3 class="main-detail-text">{{ weapon.name }}</h3>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
 </div>
 
 {% endblock %}

@@ -243,10 +243,23 @@ body {
 }
 .list-img-block {
     display: inline-block;
-    width: 180px;
+    width: 170px;
+    text-align: center;
 }
 
 /* main, weapon_detail */
+.main-detail-title {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+.main-title-img-block {
+    width: 240px;
+    display: inline-block;
+}
+.main-title-img {
+    width: 70px;
+}
 .main-detail-tag {
     text-align: center;
     font-size: 24pt;
@@ -263,7 +276,7 @@ body {
     display: inline-block;
 }
 .main-detail-att {
-    width: 180px;
+    width: 160px;
     display: inline-block;
 }
 .main-detail-exp {
@@ -272,5 +285,14 @@ body {
 }
 .main-detail-text {
     display: inline-block;
-    font-size: 32px;
+    vertical-align: middle;
+    margin: 0;
+}
+.main-detail-range-att {
+    display: inline-block;
+    width: 300px;
+}
+.main-detail-range-exp {
+    display: inline-block;
+    width: 100px;
 }
