@@ -1,0 +1,49 @@
+{% extends 'spla/base.html' %}
+{% block content %}
+<div class="splatfont container">
+    <div class="row">
+        <!-- first, secondはRangeクラスのオブジェクト -->
+        <div class="col-5 quiz_weapon_field">
+            {% for main in first.main.weapon.all %}
+            {% if forloop.first %}
+            <img src="{{ main.image.url }}" class="quiz_weapon_img">
+            {% endif %}
+            {% endfor %}
+            <h3 class="quiz_weapon_text">{{ first.main }}</h3>
+            <h3 class="quiz_weapon_text">（{{ first.range_name }}）</h3>
+        </div>
+        <div class="col-2 quiz_vs">
+            <h1>VS</h1>
+        </div>
+        <div class="col-5 quiz_weapon_field">
+            {% for main in second.main.weapon.all %}
+            {% if forloop.first %}
+            <img src="{{ main.image.url }}" class="quiz_weapon_img">
+            {% endif %}
+            {% endfor %}
+            <h3 class="quiz_weapon_text">{{ second.main }}</h3>
+            <h3 class="quiz_weapon_text">（{{ second.range_name }}）</h3>
+        </div>
+    </div>
+    
+    <div class="row">
+        <form action="" method="POST" class="range_quiz_form">
+            <div class="row">
+                {% csrf_token %}
+                {% for radio in form.answer %}
+                <div class="col-4">
+                    {{ radio.tag }}
+                    <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                </div>
+                {% endfor %}
+                <div class="col range_quiz_form_submit">
+                    <input type="submit" value="答えを確認する！" />
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+
+{% endblock %}
