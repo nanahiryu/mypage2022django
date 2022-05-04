@@ -1,6 +1,43 @@
 {% extends 'spla/base.html' %}
-{% block content %}
+{% load static %}
 
-<h1>splaDB</h1>
+{% block content %}
+<div class="splatfont">
+    <div class="index_top_bg">
+        <h1>スプラ2射程クイズ＆ツールサイト</h1>
+    </div>
+    <div class="index_second">
+        <div class="index_second_bg">
+        </div>
+        <div class="index_second_text_field">
+            <h1>ブキのずかん</h1>
+            <p>スプラトゥーン2に登場するブキの構成や射程を確認できます。</p>
+            <div class="index_button_wrapper">
+                <a href="{% url 'spla:weapon_list' %}">ブキのずかん</a>
+            </div>
+            <div class="index_button_wrapper">
+                <a href="{% url 'spla:main_list' %}">メインのずかん</a>
+            </div>
+            <div class="index_button_wrapper">
+                <a href="{% url 'spla:sub_list' %}">サブのずかん</a>
+            </div>
+            <div class="index_button_wrapper">
+                <a href="{% url 'spla:special_list' %}">スペシャルのずかん</a>
+            </div>
+        </div>
+    </div>
+    <div class="index_third">
+        <div class="index_third_text_field">
+            <h1>射程クイズ</h1>
+            <p>スプラ2に登場するブキの射程のクイズに挑戦できます！</p>
+            <div class="index_button_wrapper">
+                <a href="{% url 'spla:range_quiz_enter' %}">スプラ2射程クイズ</a>
+            </div>
+        </div>
+        <div class="index_third_bg">
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

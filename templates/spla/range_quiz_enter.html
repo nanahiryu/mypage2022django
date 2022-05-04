@@ -1,7 +1,53 @@
 {% extends 'spla/base.html' %}
+{% load static %}
+
+{% block title %}スプラ2射程クイズ | {{ block.super }}{% endblock %}
+
 {% block content %}
 <div class="splatfont container">
-    <a href="{% url 'spla:range_quiz' %}">test</a>
+    <div class="range_quiz_enter_bg">
+        <div class="row">
+            <h1 class="range_quiz_enter_title">スプラ2射程クイズ</h1>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="quiz_enter_button_wrapper">
+                    <a href="{% url 'spla:range_quiz' %}">射程クイズに挑戦する！</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <h2 class="range_quiz_enter_subtitle">遊び方</h2>
+                <p class="range_quiz_enter_text">
+                    この画面の上の「射程クイズに挑戦する！」ボタンを押すと、次の画面が表示されるよ！
+                </p>
+                <img src="{% static 'spla/img/range_quiz_exp1.png' %}" class="range_quiz_enter_img">
+                <p class="range_quiz_enter_text">
+                    射程が<strong>長い</strong>と思う方を「左！」「あいこ！」「右！」ボタンで選んでから「答えを確認する！」ボタンをクリックしてね！（選択された選択肢が光るようになっているよ！）
+                </p>
+                <img src="{% static 'spla/img/range_quiz_exp2.png' %}" class="range_quiz_enter_img">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <h2 class="range_quiz_enter_subtitle">※注意</h2>
+                <ul class="range_quiz_enter_caution">
+                    <li>
+                        本クイズではメインが被らないという制限の元、クイズを自動生成しています。
+                    </li>
+                    <li>
+                        本クイズの射程は公式から提示されているデータではないため、一部不正確なデータが含まれている可能性があります。改めてご了承頂いた上でごゆるりとお遊びください。
+                    </li>
+                    <li>
+                        本クイズに用いた射程は<a href="https://splatool.net/rangemanage.html">しゃり様のサイト</a>と<a
+                            href="https://wikiwiki.jp/splatoon2mix/">spla2wiki様</a>を参考に作成しております。
+                    </li>
+                    <li>
+                        射程の定義に関しては「エイムの上下によっての変化も考慮し， 最長の射程を得られるエイム角度で比較しています。 (ジャンプでの変化は考慮しません)」（<a href="https://splatool.net/rangemanage.html">しゃり様のサイト</a>から引用）となっております。
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 
