@@ -14,4 +14,7 @@ urlpatterns = [
     path('special_list', views.SpecialListView.as_view(), name='special_list'),
     path('special_detail/<int:pk>/',
          views.SpecialDetailView.as_view(), name='special_detail'),
+    path('range_quiz_enter/', views.RangeQuizEnterView.as_view(),
+         name='range_quiz_enter'),
+    path('range_quiz/', views.RangeQuizView.as_view(), name='range_quiz'),
 ]
