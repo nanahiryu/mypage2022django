@@ -221,7 +221,7 @@ iframe {
 
     /* これを追加 */
     #diary-detail {
-        width: 600px;
+        width: 1000px;
         margin: 0 auto;
         padding: 0;
     }
