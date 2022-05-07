@@ -120,12 +120,11 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-.about_fig_field {
-    margin: 40px 20px;
-    background-color: #aaa;
+.about_career_field {
+    margin: 40px 20% 40px 0;
 }
 .about_name_box {
-    margin: 40px 20px;
+    margin: 40px 20%;
 }
 .about_name_kanji h2 {
     font-family: "Noto Sans JP", sans-serif;
