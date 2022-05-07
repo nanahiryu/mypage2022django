@@ -1,0 +1,12 @@
+<div>
+    <h1>{{ weapon.name }}</h1>
+    <h1>{{ sub_correct }}</h1>
+    <h1>{{ sp_correct }}</h1>
+    <h1>{{ sub_ans }}</h1>
+    <h1>{{ sp_ans }}</h1>
+    {% if judge %}
+    <h1>正解！</h1>
+    {% else %}
+    <h1>不正解！</h1>
+    {% endif %}
+</div>

@@ -4,7 +4,7 @@ from django.views import generic
 from django.shortcuts import render
 from .models import Weapon, Main, SubWeapon, Special, Range
 import random
-from .forms import RangeQuizForm
+from .forms import RangeQuizForm, SubSpQuizForm
 
 # Create your views here.
 
@@ -103,5 +103,40 @@ class RangeQuizView(generic.FormView):
             "judge": self.request.session["judge"],
             "player_answer": player_answer,
         }
-        print(context)
+        # print(context)
         return render(self.request, 'spla/range_quiz_result.html', context)
+
+
+class SubSpQuizEnterView(generic.TemplateView):
+    template_name = 'spla/subsp_quiz_enter.html'
+
+
+class SubSpQuizView(generic.FormView):
+    template_name = 'spla/subsp_quiz.html'
+    model = Weapon
+    form_class = SubSpQuizForm
+    success_url = reverse_lazy('spla:subsp_quiz_result')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["weapon"] = random.choice(Weapon.objects.all())
+        # 答えとなるサブ、スペシャルのidをsessionに渡す
+        self.request.session["weapon"] = context["weapon"].id
+        self.request.session["sub"] = context["weapon"].sub.id
+        self.request.session["sp"] = context["weapon"].special.id
+        return context
+
+    def form_valid(self, form):
+        # 正解と解答をcontextに格納
+        context = {
+            'weapon': Weapon.objects.get(id=self.request.session["weapon"]),
+            'sub_correct': SubWeapon.objects.get(id=self.request.session["sub"]),
+            'sp_correct': Special.objects.get(id=self.request.session["sp"]),
+            'sub_ans': SubWeapon.objects.get(id=form.data["sub_choices"]),
+            'sp_ans': Special.objects.get(id=form.data["sp_choices"]),
+        }
+        if context['sub_correct'] == context['sub_ans'] and context['sp_correct'] == context['sp_ans']:
+            context['judge'] = True
+        else:
+            context['judge'] = False
+        return render(self.request, 'spla/subsp_quiz_result.html', context)

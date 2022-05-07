@@ -17,4 +17,7 @@ urlpatterns = [
     path('range_quiz_enter/', views.RangeQuizEnterView.as_view(),
          name='range_quiz_enter'),
     path('range_quiz/', views.RangeQuizView.as_view(), name='range_quiz'),
+    path('subsp_quiz_enter/', views.SubSpQuizEnterView.as_view(),
+         name='subsp_quiz_enter'),
+    path('subsp_quiz/', views.SubSpQuizView.as_view(), name='subsp_quiz'),
 ]
