@@ -162,6 +162,12 @@ footer {
     vertical-align: middle;
     margin: 0;
 }
+@media (max-width: 767px) {
+    .about_box {
+            grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 480px) {
     .about_skill_box {
         display: grid;
