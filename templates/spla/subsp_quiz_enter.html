@@ -1,3 +1,10 @@
+{% extends 'spla/base.html' %}
+{% load static %}
+
+{% block title %}スプラ2サブスぺクイズ | {{ block.super }}{% endblock %}
+
+{% block content %}
 <div>
     <a href="{% url 'spla:subsp_quiz' %}">サブスぺクイズへ</a>
 </div>
+{% endblock %}

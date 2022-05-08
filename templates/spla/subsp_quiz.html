@@ -1,3 +1,7 @@
+{% extends 'spla/base.html' %}
+{% load static %}
+
+{% block content %}
 <div>
     <img src="{{ weapon.image.url }}">
     <form action="" method="POST">
@@ -6,3 +10,5 @@
         <input type="submit" value="答えを確認する！" />
     </form>
 </div>
+
+{% endblock %}

@@ -11,7 +11,13 @@ a {
     font-family: Splatfont;
 }
 
+html {
+    height: 100%;
+}
+
+
 body {
+    height: 100%;
     background-image: url("./img/bg_main.png");
     background-color: rgba(255, 255, 255, 0.5);
     background-blend-mode: lighten;
