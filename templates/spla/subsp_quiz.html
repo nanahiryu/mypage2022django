@@ -1,14 +1,33 @@
 {% extends 'spla/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block content %}
-<div>
-    <img src="{{ weapon.image.url }}">
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="答えを確認する！" />
-    </form>
+<div class="splatfont container">
+    <div class="row">
+        <div class="col quiz_weapon_field">
+            <img src="{{ weapon.image.url }}">
+            <h3 class="subsp_quiz_weapon_text">{{ weapon.name }}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <form action="" method="POST">
+            <div class="subsp_quiz_form_field">
+                {% csrf_token %}
+                <div class="subsp_quiz_choice_field">
+                    <h3>{{ form.sub_choices.label }}</h3>
+                    {{ form.sub_choices|add_class:'form-select' }}
+                </div>
+                <div class="subsp_quiz_choice_field">
+                    <h3>{{ form.sp_choices.label }}</h3>
+                    {{ form.sp_choices|add_class:'form-select' }}
+                </div>
+            </div>
+            <div class="col range_quiz_form_submit">
+                <input type="submit" value="答えを確認する！" />
+            </div>
+        </form>
+    </div>
 </div>
 
 {% endblock %}

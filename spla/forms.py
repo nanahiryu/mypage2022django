@@ -20,12 +20,12 @@ class RangeQuizForm(forms.Form):
 
 class SubSpQuizForm(forms.Form):
     sub_choices = forms.ModelChoiceField(
-        label='sub',
+        label='サブ',
         queryset=SubWeapon.objects,
         required=True,
     )
     sp_choices = forms.ModelChoiceField(
-        label='sp',
+        label='スペシャル',
         queryset=Special.objects,
         required=True,
     )

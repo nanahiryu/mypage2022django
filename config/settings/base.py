@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'mdeditor',
     'blog',
     'home',
+    'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

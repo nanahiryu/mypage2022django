@@ -389,6 +389,7 @@ body {
     background-color: rgba(249, 249, 249, 0.8);
     border-radius: 10px;
     padding: 10px 30px;
+    margin: 30px 0;
 }
 .range_quiz_enter_title {
     text-align: center;
@@ -429,6 +430,12 @@ body {
 
 .quiz_enter_button_wrapper a:hover {
     color: #000;
+}
+
+.subsp_quiz_enter_text {
+    font-size: 16pt;
+    margin: 10px auto;
+    max-width: 800px;
 }
 
 /* quiz, quiz_result */
@@ -498,7 +505,7 @@ body {
     background-color: #ccc;
     border-radius: 10px;
     padding: 5px;
-    margin: 5px;
+    margin: 20px 10px;
     border: 2px solid #eee;
     color: #777;
     font-size: 16pt;
@@ -520,6 +527,48 @@ body {
 .judge_result_field h3 {
     margin: 3px;
 }
+.subsp_quiz_weapon_text {
+    font-size: 28px;
+}
+
+.subsp_quiz_choice_field {
+    margin: 20px auto;
+    text-align: center;
+    margin: 20px;
+}
+.subsp_quiz_choice_field select {
+    width: 250px;
+    margin: 0 auto;
+}
+.subsp_quiz_form_field {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.subsp_quiz_result_field h2 {
+    margin: 30px;
+    font-size: 28pt;
+    color: red;
+    display: block;
+    text-align: center;
+}
+.subsp_quiz_result_field>div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px 0;
+}
+.subsp_quiz_result_field>div>h3{
+    margin-left: 10%;
+}
+@media (max-width: 767px) {
+    .subsp_quiz_result_field>div {
+            grid-template-columns: 1fr;
+    }
+    .subsp_quiz_form_field {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 
 /* footer */
 footer {

@@ -4,7 +4,31 @@
 {% block title %}スプラ2サブスぺクイズ | {{ block.super }}{% endblock %}
 
 {% block content %}
-<div>
-    <a href="{% url 'spla:subsp_quiz' %}">サブスぺクイズへ</a>
+<div class="splatfont container">
+    <div class="range_quiz_enter_bg">
+        <div class="row">
+            <div class="col">
+                <h1 class="range_quiz_enter_title">スプラ2サブスぺクイズ</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="quiz_enter_button_wrapper">
+                    <a href="{% url 'spla:subsp_quiz' %}">サブスぺクイズに挑戦する！</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2 class="range_quiz_enter_subtitle">遊び方</h2>
+                <p class="subsp_quiz_enter_text">
+                    この画面の上の「サブスぺクイズに挑戦する！」ボタンを押すと、次の画面が表示されるよ！
+                </p>
+                <p class="subsp_quiz_enter_text">
+                    出てくる画像の「サブ」と「スペシャル」を答えよう！
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

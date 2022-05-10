@@ -2,17 +2,57 @@
 {% load static %}
 
 {% block content %}
-<div>
-    <h1>{{ weapon.name }}</h1>
-    <h1>{{ sub_correct }}</h1>
-    <h1>{{ sp_correct }}</h1>
-    <h1>{{ sub_ans }}</h1>
-    <h1>{{ sp_ans }}</h1>
-    {% if judge %}
-    <h1>正解！</h1>
-    {% else %}
-    <h1>不正解！</h1>
-    {% endif %}
+<div class="splatfont container">
+    <div class="row">
+        <div class="col quiz_weapon_field">
+            <img src="{{ weapon.image.url }}">
+            <h3 class="subsp_quiz_weapon_text">{{ weapon.name }}</h3>
+        </div>
+    </div>
+    <div class="subsp_quiz_result_field">
+        {% if judge %}
+        <h2>正解！</h2>
+        <div>
+            <h3>正解（サブ）：</h3>
+            <h3>{{ sub_correct }}</h3>
+        </div>
+        <div>
+            <h3>正解（スペシャル）：</h3>
+            <h3>{{ sp_correct }}</h3>
+        </div>
+        {% else %}
+        <h2>不正解！</h2>
+        <div>
+            <h3>正解（サブ）：</h3>
+            <h3>{{ sub_correct }}</h3>
+        </div>
+        <div>
+            <h3>正解（スペシャル）：</h3>
+            <h3>{{ sp_correct }}</h3>
+        </div>
+        <div>
+            <h3>あなたの解答（サブ）：</h3>
+            <h3>{{ sub_ans }}</h3>
+        </div>
+        <div>
+            <h3>あなたの解答（スペシャル）：</h3>
+            <h3>{{ sp_ans }}</h3>
+        </div>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="quiz_result_button_wrapper">
+                <a href="{% url 'spla:subsp_quiz' %}">もう一問挑戦！</a>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="quiz_result_button_wrapper">
+                <a href="{% url 'spla:subsp_quiz_enter' %}">トップへ戻る</a>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}
