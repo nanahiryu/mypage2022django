@@ -1,6 +1,7 @@
 asgiref==3.2.10
 autopep8==1.5.4
 certifi==2020.12.5
+chardet==4.0.0
 dj-database-url==0.5.0
 Django==3.1.1
 django-cleanup==5.1.0
@@ -9,15 +10,21 @@ django-heroku==0.3.1
 django-markdownx==3.0.1
 django-mdeditor==0.1.20
 django-pandas==0.6.2
-django-torina-blog @ https://github.com/naritotakizawa/django-torina-blog/archive/master.tar.gz
+django-torina-blog==1.0.0
+django-widget-tweaks==1.4.12
 gunicorn==20.0.4
 idna==2.10
 Markdown==3.3.4
+numpy==1.22.4
+panda3d==1.10.7
+pandas==1.4.2
 Pillow==7.2.0
 psycopg2==2.9.1
 pycodestyle==2.6.0
+python-dateutil==2.8.2
 pytz==2020.1
 requests==2.25.1
+six==1.16.0
 sqlparse==0.3.1
 toml==0.10.1
 urllib3==1.25.10
