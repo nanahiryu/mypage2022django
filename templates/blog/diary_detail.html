@@ -17,7 +17,7 @@
         </p>
         <div class="contents text-left" id="content">
             <!-- {{ diary.text | linebreaks | urlize2 }} -->
-            <p class="diary-text">{{ diary.text|markdown|safe }}</p>
+            <div class="diary-text">{{ diary.text|markdown|safe }}</div>
         </div>
     </article>
 </section>

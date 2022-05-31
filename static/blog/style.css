@@ -143,6 +143,10 @@ input[type="text"] {
     font-weight: 400;
 }
 
+.diary-text {
+    font-family: "Noto Sans JP", sans-serif;
+}
+
 .meta {
     margin-bottom: 32px;
     color: #999;
