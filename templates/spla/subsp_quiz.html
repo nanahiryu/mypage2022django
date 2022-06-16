@@ -26,6 +26,11 @@
             <div class="col range_quiz_form_submit">
                 <input type="submit" value="答えを確認する！" />
             </div>
+            <div class="hidden">
+                <input type="hidden" name="weapon" value="{{ weapon.id }}">
+                <input type="hidden" name="sub" value="{{ weapon.sub.id }}">
+                <input type="hidden" name="special" value="{{ weapon.special.id }}">
+            </div>
         </form>
     </div>
 </div>

@@ -71,26 +71,24 @@ class RangeQuizView(generic.FormView):
     success_url = reverse_lazy('spla:range_quiz_result')
 
     # DBからランダムに一つrangeオブジェクトを取得し,それとはメインが違うrangeオブジェクトを取得し,contextに格納
-    # それぞれのrange(first, second)のid, 射程がどちらが長いかの文字列(judge)をsessionに保存
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["first"] = random.choice(Range.objects.all())
-        self.request.session["first"] = context["first"].id
         context["second"] = random.choice(
             Range.objects.exclude(main=context["first"].main))
-        self.request.session["second"] = context["second"].id
         if context["first"].range > context["second"].range:
-            self.request.session["judge"] = "左！"
+            context["judge"] = "左！"
         elif context["first"].range == context["second"].range:
-            self.request.session["judge"] = "あいこ！"
+            context["judge"] = "あいこ！"
         else:
-            self.request.session["judge"] = "右！"
+            context["judge"] = "右！"
         return context
 
     # 解答内容(player_answer), 比較していたrange(first, second), 判定結果(judge)をcontextに入れてrender
     def form_valid(self, form):
-        first = Range.objects.get(id=self.request.session["first"])
-        second = Range.objects.get(id=self.request.session["second"])
+        first = Range.objects.get(id=self.request.POST["first_range"])
+        second = Range.objects.get(id=self.request.POST["second_range"])
         if form.data["answer"] == "first":
             player_answer = "左！"
         elif form.data["answer"] == "even":
@@ -100,7 +98,7 @@ class RangeQuizView(generic.FormView):
         context = {
             "first": first,
             "second": second,
-            "judge": self.request.session["judge"],
+            "judge": self.request.POST["judge"],
             "player_answer": player_answer,
         }
         # print(context)
@@ -120,18 +118,14 @@ class SubSpQuizView(generic.FormView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["weapon"] = random.choice(Weapon.objects.all())
-        # 答えとなるサブ、スペシャルのidをsessionに渡す
-        self.request.session["weapon"] = context["weapon"].id
-        self.request.session["sub"] = context["weapon"].sub.id
-        self.request.session["sp"] = context["weapon"].special.id
         return context
 
     def form_valid(self, form):
         # 正解と解答をcontextに格納
         context = {
-            'weapon': Weapon.objects.get(id=self.request.session["weapon"]),
-            'sub_correct': SubWeapon.objects.get(id=self.request.session["sub"]),
-            'sp_correct': Special.objects.get(id=self.request.session["sp"]),
+            'weapon': Weapon.objects.get(id=self.request.POST["weapon"]),
+            'sub_correct': SubWeapon.objects.get(id=self.request.POST["sub"]),
+            'sp_correct': Special.objects.get(id=self.request.POST["special"]),
             'sub_ans': SubWeapon.objects.get(id=form.data["sub_choices"]),
             'sp_ans': Special.objects.get(id=form.data["sp_choices"]),
         }
