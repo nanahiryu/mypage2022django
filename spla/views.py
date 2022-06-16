@@ -77,18 +77,21 @@ class RangeQuizView(generic.FormView):
         context["first"] = random.choice(Range.objects.all())
         context["second"] = random.choice(
             Range.objects.exclude(main=context["first"].main))
-        if context["first"].range > context["second"].range:
-            context["judge"] = "左！"
-        elif context["first"].range == context["second"].range:
-            context["judge"] = "あいこ！"
-        else:
-            context["judge"] = "右！"
+
         return context
 
     # 解答内容(player_answer), 比較していたrange(first, second), 判定結果(judge)をcontextに入れてrender
     def form_valid(self, form):
         first = Range.objects.get(id=self.request.POST["first_range"])
         second = Range.objects.get(id=self.request.POST["second_range"])
+
+        if first.range > second.range:
+            correct = "左！"
+        elif first.range == second.range:
+            correct = "あいこ！"
+        else:
+            correct = "右！"
+
         if form.data["answer"] == "first":
             player_answer = "左！"
         elif form.data["answer"] == "even":
@@ -98,7 +101,7 @@ class RangeQuizView(generic.FormView):
         context = {
             "first": first,
             "second": second,
-            "judge": self.request.POST["judge"],
+            "judge": correct,
             "player_answer": player_answer,
         }
         # print(context)
