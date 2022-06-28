@@ -1,4 +1,7 @@
 {% extends 'spla/base.html' %}
+
+{% block title %}{{ special.name }} | {{ block.super }}{% endblock %}
+
 {% block content %}
 <div class="splatfont container">
     <h1>スペシャルが{{ special.name }}のブキ一覧</h1>

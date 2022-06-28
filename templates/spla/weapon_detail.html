@@ -1,4 +1,7 @@
 {% extends 'spla/base.html' %}
+
+{% block title %}{{ weapon.name }} | {{ block.super }}{% endblock %}
+
 {% block content %}
 <div class="splatfont container">
     <div class="list-block">
