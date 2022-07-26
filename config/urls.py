@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from blog.api.urls import router as blog_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +25,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('mdeditor/', include('mdeditor.urls')),
     path('spla/', include('spla.urls')),
+    path('blog_api/', include(blog_router.urls)),
 ]
 
 if settings.DEBUG:
